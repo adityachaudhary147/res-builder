@@ -1,0 +1,59 @@
+.head-left{
+    margin-top: 32px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: rgb(0 0 0 / 5%) 2px 1px 7px;
+    background-color: white;
+}
+
+.content-personal{
+    margin-top: 20px;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: rgb(0 0 0 / 5%) 2px 1px 7px;
+    background-color: white;
+    padding-top: 25px;
+    padding-bottom: 35px;
+}
+.add-small{
+    padding: 0;
+}
+.add-content{
+    display: flex;
+    justify-content: center;
+}
+.add-content-btn{
+    margin-top: 20px;
+    background-color: lightskyblue;
+    color:black;
+    border-radius: 20px;
+    padding:15px;
+    width: 33%;
+}
+
+.resume-title{
+    padding: 13px 15px;
+    font-size: 20px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+.download-btn{
+    padding: 8px 13px;
+    background-color: black;
+    color:white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.edit-res-icon{
+    width: 15px;
+    margin-left: 12px;
+}
+
+.headerform{
+    text-align: left;
+}

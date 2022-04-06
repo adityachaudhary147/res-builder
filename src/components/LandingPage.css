@@ -1,0 +1,52 @@
+.landing-nav{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.nav-landing-outer{
+    margin: 50px 60px;
+}
+.logo-title{
+    font-size: 30px;
+}
+.login-btn{
+    padding:10px 25px;
+    font-size: 19px;
+    border-radius: 20px;
+    background-color: black;
+    color:white;
+    border-style: none;
+}
+.tagline{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+}
+.rocket-svg {
+    text-align: center;
+    margin-right: 100px;
+}
+.banner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:40px 140px;
+}
+.login-link{
+    color: white;
+    text-decoration: none;
+
+}
+.login-link:visited{
+    color:white;
+    text-decoration: none;
+}
+.login-link:active{
+    color: white;
+    text-decoration: none;
+}
+
+.resume-link{
+    color: black;
+    text-decoration: none;
+}

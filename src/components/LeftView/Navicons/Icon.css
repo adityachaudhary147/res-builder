@@ -1,0 +1,41 @@
+.span-content{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+    border-radius: 20px;
+    padding: 5px 6px;
+}
+.span-content-2{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+    border-radius: 20px;
+    padding: 5px 6px;
+}
+.img-icon{
+
+    width: 60px;
+    margin: auto;
+    
+}
+.title-icon{
+    font-size: 18px;
+    font-weight: 800;
+}
+.span-content:hover{
+    background-color: whitesmoke    ;
+    cursor: pointer;
+    color: pink ;
+}
+.img-icon{
+    fill:pink;
+}
+.active-nav{
+    background-color: whitesmoke    ;
+    cursor: pointer;
+    color: pink ;
+}

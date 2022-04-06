@@ -1,0 +1,18 @@
+.themes{
+    text-align: left;
+    
+}
+.themes > h2{
+margin-bottom: 0px;
+}
+.themes>p{
+     margin-top: 0px;
+}
+.theme-images{
+    overflow: auto;
+    height: 450px;
+    white-space: nowrap;
+}
+.theme-image{
+    display: inline-block;
+}

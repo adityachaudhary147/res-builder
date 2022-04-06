@@ -1,38 +1,172 @@
 .App {
+
+  display: grid;
+  grid-template-columns: 130px max(550px) auto;;
+}
+@media print {
+  @page {
+    margin: 0;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .preview * {
+    visibility: visible;
+  }
+  .preview {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+  }
+}
+.form * input{
+  
+padding: 10px;
+border-radius: 10px;
+border:none;
+background-color: whitesmoke;
+}
+.preview{
+  border: solid black;
+  border-radius: 3px;
+  margin-right: 12px;
+}
+.title{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.red-cross{
+  cursor: pointer;
+}
+.left{
+  height: 800px;
+  overflow: scroll;
+}
+.presses{
+  background-color: white;
+}
+.unpresses{
+  background-color: whitesmoke;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left{
+  text-align:center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.view-exp,.view-edu{
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.view-exp-bdr,.view-edu-bdr{
+  border: grey solid 0.5px;
+  background-color: lightblue;
+}
+.btn-left-section{
+  margin-top: 15px;
+  padding: 10px;
+  margin-right: 12px;
+  border-radius: 15px;
+  border: none;
+}
+.main-app{
+  padding: 0 32px;
+}
+.left{
+  padding: 0 32px;
+}
+.main-app{
+  margin: 0;
+  background-color: whitesmoke;
+}
+body{
+  background-color: whitesmoke;
+}
+/* subsetion bar like educatio an arrow wala tab */
+.subsection-bar{
+  display: flex;
+  align-items: center;
+}
+.subsection-bar >h1{
+  margin-left: 20px;
+}
+.down-arrow{
+  width: 100%;
+  text-align: right;
+}
+.down-arrow > button >img{
+  height: 30px;
+  margin-right: 40px;
+}
+.down-arrow-btn{
+  border:none;
+  background-color: white;
+}
+.tile-sub-section{
+  padding: 14px 14px;
+  text-align: left;
+  padding-left: 25px;
+}
+:root{
+--tw-gradient-to: #FC6767;
+--tw-gradient-from: #EC008C;
+--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(236 0 140 / 0));
+}
+.btn-add-more{
+  margin-top: 50px;
+  padding: 10px 16px;
+  background-image: linear-gradient(to right,var(--tw-gradient-stops));
+  border-radius: 20px;
+  color:white;
+  font-size:20px;
+  font-weight: 400;
+  border:none;
+
+}
+.save-btn{
+  padding: 10px 16px;
+  background-image: linear-gradient(to right,var(--tw-gradient-stops));
+  border-radius: 20px;
+  color:white;
+  font-size:20px;
+  font-weight: 400;
+  border:none;
+  margin-left: 55px;
+
+}
+/* forms designing  */
+
+.form{
+  text-align: left;
+}
+.label{
+  margin-left: 30px;
+  margin-bottom: 5px;
+  font-weight: 900;
+}
+.form * input{
+  margin: 0;
+  margin-left:15px;
+  width: 33%;
+
 }
 
-.App-link {
-  color: #61dafb;
+.inside-content-personal{
+  margin: 0 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tile-sub-section{
+  border-top: solid whitesmoke 2px;
+  border-bottom: solid whitesmoke 2px;
+ height: 50px;
+ display: flex;
+ justify-content: space-between;
+  
+ align-items: center;
+
+}
+
+.withoutform{
+  text-align: left;
+  margin-left: 25px;
 }
