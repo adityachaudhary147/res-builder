@@ -3,3 +3,16 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+.resumeName{
+
+    font-size: large;
+    padding: 20px;
+    width: 40%;
+    background-color: grey;
+    color:black
+}
+.resumeName-link{
+text-decoration: none;
+
+}

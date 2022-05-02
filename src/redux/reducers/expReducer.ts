@@ -38,6 +38,8 @@ const expReducer = (state: expState=initialState, action: Action):expState => {
                 return {
                     exp:state.exp.filter(val=>val.id==action.payload?false:true)
                 }
+            case ActionType.MAKE_EXP_EMPTY:
+                return {exp:[] };
         default:
             return state;
     }

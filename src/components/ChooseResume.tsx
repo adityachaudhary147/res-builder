@@ -11,6 +11,7 @@ import { getMaxListeners } from 'process';
 import { asyncThinkActionPostResume } from '../redux/actions/postResumeName';
 import { Link } from 'react-router-dom';
 import BuildNPreview from '../BuildNPreview';
+import { postDeleteResume } from '../redux/actions/postDeleteResume';
 
 export default function ChooseResume() {
 
@@ -63,7 +64,7 @@ const dispatch=useDispatch();
          {resumelist.isloading && "Loading"} 
          { resumelist.data && resumelist.data.length==0 && "You dont have any resume create one and start "} 
          
-         {resumelist.data && resumelist.data.map(val=>{ return<h1 ><Link to='/resume' state={{ from: val.Id }}>{val.Name}</Link></h1>;})}
+         {resumelist.data && resumelist.data.map(val=>{ return<h1 className='resumeName' ><Link className='resumeName-link' to='/resume' state={{ from: val.Id }}>{val.Name} </Link><button onClick={()=>postDeleteResume(val.Id)(dispatch)}>Delete</button></h1>;})}
 
 
          <h1>Create New Resume</h1> 
@@ -76,6 +77,9 @@ const dispatch=useDispatch();
            </div>
            <button>Create New Resume</button>
 
+           <h1>Copy content from above resume to build another version of the resume </h1>
+
+           
          </form>
          </div>
           </div>}

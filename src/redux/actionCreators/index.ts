@@ -57,6 +57,17 @@ export function removeDegree(hello:number):Action
 export function updateExp(hello:exp):Action{
     return {type:ActionType.ADD_EXP,payload:hello}
 }
+export function makeExpEmpty():Action{
+    return {type:ActionType.MAKE_EXP_EMPTY}
+}
+
+export function makeEduEmpty():Action{
+    return {type:ActionType.MAKE_EDU_EMPTY}
+}
+
+export function makeSkillEmpty():Action{
+    return {type:ActionType.MAKE_SKILLS_EMPTY}
+}
 export function removeExp(hello:number):Action{
     return {type:ActionType.REMOVE_DEGREE,payload:hello}
 }

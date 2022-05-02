@@ -21,6 +21,9 @@ export enum ActionType {
     GET_RESUMES_REQUEST="GET_RESUMES_REQUEST",
     GET_RESUMES_SUCCESS="GET_RESUMES_SUCCESS",
     GET_RESUMES_FAILURE="GET_RESUMES_FAILURE",
+    MAKE_EXP_EMPTY="MAKE_EXP_EMPTY",
+    MAKE_EDU_EMPTY='MAKE_EDU_EMPTY',
+    MAKE_SKILLS_EMPTY='MAKE_SKILLS_EMPTY',
     
 }
 
@@ -31,7 +34,9 @@ export enum ActionType {
 // GET_EDU_SECTION
 // GET_EXP_SECTION
 // GET_
-
+interface actionmakeempty{
+    type:ActionType.MAKE_EDU_EMPTY|ActionType.MAKE_SKILLS_EMPTY|ActionType.MAKE_EXP_EMPTY
+}
 
 interface  updateObj2{
     [key:string]:string|number,
@@ -97,4 +102,4 @@ interface actionGETResumeError{
     payload:string
 }
 export type Action = updateHeader | actionADDDegree |actionADDExp | actionADDSkill | actionREMOVESkill |actionRemoveDegree | actionRemoveExp | actionUpdateFont |actionUpdateHeadAlign|actionselectTheme | actionUpdateShow
-|actionGETResumeRequest| actionGETResumeSuccess | actionGETResumeError;
+|actionGETResumeRequest| actionGETResumeSuccess | actionGETResumeError | actionmakeempty;

@@ -29,6 +29,8 @@ const educationReducer = (state: eduState=initialState , action: Action):eduStat
                 return {
                     education:state.education.filter((val)=>val.id==action.payload?false:true)
                 }
+            case ActionType.MAKE_EDU_EMPTY:
+                return {education:[]}
         default: 
             return state;
     }

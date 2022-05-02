@@ -1,4 +1,4 @@
-import { actiongetResumeFailure, actiongetResumeRequest, actiongetResumeSuccess, updateEdu, updateExp, updateHeader } from "../actionCreators"
+import { actiongetResumeFailure, actiongetResumeRequest, actiongetResumeSuccess, makeEduEmpty, makeExpEmpty, updateEdu, updateExp, updateHeader } from "../actionCreators"
 import {Action, ActionCreator, Dispatch} from 'redux';
 import {ThunkAction} from 'redux-thunk';
 // import { resume, resumeState } from "../reducers/resumeReducer";
@@ -22,6 +22,7 @@ interface upexp{
 function updateExperienceD(exp:Array<upexp>,dispatch:Dispatch<Action>)
 {
     console.log(exp,"here is the exp section of delhi ");
+    dispatch(makeExpEmpty());
     exp.map((val:upexp)=>{
         const val2:exp ={job_title:val.Jobtitle,
             id:Number(val.Id),
@@ -38,6 +39,14 @@ interface uppersonal{
 
 
 function updatePersonalD(personal:Array<uppersonal>,dispatch:Dispatch<Action>){
+    
+    
+    dispatch(updateHeader( {email:"Your email",
+        name:"Your name",
+        mobile:Number("0"),
+        statement:"your statement",
+        profession:"your profession",
+        weburl:"webuserl"}));
     personal.map((val:uppersonal)=>{
         const val2:HeadState ={
             email:val.Email,
@@ -47,6 +56,7 @@ function updatePersonalD(personal:Array<uppersonal>,dispatch:Dispatch<Action>){
             profession:val.Profession,
             weburl:val.Weburl
         }
+
         dispatch(updateHeader(val2));
     })
 
@@ -60,6 +70,7 @@ interface uedu{
 function updateEducationD(edu:Array<uedu>,dispatch:Dispatch<Action>)
 {
     console.log(edu,"here is the edu section data ");
+    dispatch(makeEduEmpty());
     edu.map((val:uedu)=>{
         const val2: degree={
             course:val.Course,
