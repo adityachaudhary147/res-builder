@@ -16,3 +16,6 @@ margin-bottom: 0px;
 .theme-image{
     display: inline-block;
 }
+.left-right-btn{
+    position:static;
+}

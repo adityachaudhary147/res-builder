@@ -1,0 +1,22 @@
+.full-name-4{
+    color: #eb3834;
+    font-size: 40px;
+    text-transform: capitalize;
+}
+.profession-4{
+    color: #eb3834;
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.header-preview-4{
+    padding-top: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+}
+.title-preview-4{
+    background-color: #eeeeee;
+    padding: 3px;
+    text-align: center;
+    font-size: 18px;
+}

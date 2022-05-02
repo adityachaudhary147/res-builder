@@ -8,9 +8,9 @@ import {
   Link
 } from "react-router-dom";
 import ExperienceView from './components/LeftView/ExperienceView';
-
 import LandingPage from './components/LandingPage';
 import BuildNPreview from './BuildNPreview';
+import ChooseResume from './components/ChooseResume';
 function App() {
   return (
     <>
@@ -36,6 +36,9 @@ function App() {
           <Route path="/signin" element={<LandingPage />}>
            
           </Route>
+          <Route path="/choose" element={<ChooseResume />}>
+
+          </Route >
         </Routes>
       </div>
     </Router>

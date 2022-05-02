@@ -6,8 +6,13 @@ import { ActionType } from "../actionTypes";
 import { HeadAlign } from "../reducers/customization/HeadAlignReducer";
 import { degree } from "../reducers/educationReducer";
 import { exp } from "../reducers/expReducer";
-
-
+import axios from 'axios';
+import authHeader from "../actions/auth";
+import { resolve } from "path/posix";
+import skillsReducer from "../reducers/skillsReducer";
+import { getMaxListeners } from "process";
+import { HeadState } from "../reducers/headReducer";
+// import { resumeReducer } from "../reducers/resumeReducer";
 // export function modifyHeaderName(newHeaderName:string):Action
 // {
 //     return {
@@ -36,7 +41,8 @@ import { exp } from "../reducers/expReducer";
 //     }
 // }
 
-export function updateHeader(hello:updateObj):Action
+
+export function updateHeader(hello:HeadState):Action
 {
     return { type:ActionType.UPDATE_HEADER,payload:hello}
 }
@@ -56,11 +62,24 @@ export function removeExp(hello:number):Action{
 }
 export function addSkill(st:string):Action
 {
-return {type:ActionType.ADD_SKILL,payload:st}
+// const resid='1';
+// return addSkillRequest(st,resid);
+return {type:ActionType.ADD_SKILL,payload:st};
 }
+//    return axios.post(API_URL + "addskill",new URLSearchParams(
+//       {token:token["x-access-token"],Name:st,Resid:'1'} 
+//    )).then(res=>{
+//      console.log(res);
+//      return {type:ActionType.ADD_SKILL,payload:st};
+//  }).catch(function(error){
+// console.log(error);
+//  });
+
+// }
 export function removeSkill(st:string):Action{
     return {type:ActionType.REMOVE_SKILL,payload:st}
 }
+
 
 export function updateHeadAlign(er:string,re:string):Action{
     return {
@@ -84,5 +103,27 @@ export function actionUpdateshow(st:string):Action{
     return{
         type:ActionType.UPDATE_SHOW,
         payload:st
+    }
+}
+
+export function actiongetResumeRequest()
+{
+
+    return {
+        type:ActionType.GET_RESUMES_REQUEST
+    }
+}
+export function actiongetResumeSuccess(res:Array<any>)
+{
+
+    return {
+        type:ActionType.GET_RESUMES_SUCCESS,
+        payload:res
+    }
+}
+export function actiongetResumeFailure(errMessege:string){
+    return {
+        type:ActionType.GET_RESUMES_FAILURE,
+        payload:errMessege
     }
 }

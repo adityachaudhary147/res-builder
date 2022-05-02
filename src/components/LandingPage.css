@@ -50,3 +50,7 @@ align-items: center;
     color: black;
     text-decoration: none;
 }
+.login-register{
+    display:flex;
+    justify-content: space-evenly;
+}

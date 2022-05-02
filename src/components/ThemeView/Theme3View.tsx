@@ -52,7 +52,7 @@ const Theme3View: React.FC<PreviewProps> = ({ message }: PreviewProps) => {
                   <>
                     <div className="preview-education">
                       {" "}
-                      <span className="duration">
+                      <span className="duration-3">
                         {val.start_year}-{val.end_year}
                       </span>
                       <div className="uni-Name">
@@ -73,7 +73,7 @@ const Theme3View: React.FC<PreviewProps> = ({ message }: PreviewProps) => {
                   <>
                     <div className="preview-experience">
 
-                    <div className="duration">{val.duration}</div>
+                    <div className="duration-3">{val.duration}</div>
                       <div>
                         {val.job_title} , ( {val.company} )
                         <ul>

@@ -6,7 +6,12 @@ import {ReactComponent as Rocket2} from '../assets/rocket.svg';
 import Rocket from '../assets/rocket.svg';
   import './LandingPage.css';
 import RocketIcon from '../assets/Rocket';
+import Login from './auth/LoginView';
+import Register from './auth/RegisterView';
+import RegisterView from './auth/RegisterView';
+import LoginView from './auth/LoginView';
 export default function LandingPage() {
+  const check:boolean=true;
   return (
     <>
 
@@ -36,17 +41,28 @@ export default function LandingPage() {
                <Link className="resume-link" to="/resume">
                <h1> For First Free Resume Click here </h1></Link>
                
+              
+               
              </div>
              
 
 
-            </div>
-            
-        </div>
 
+            </div>
+            <div className='login-register'>
+               <div>
+               <RegisterView />
+               </div>
+               <div>
+              <LoginView/>
+              </div>
+             
 
        
         </div> 
+        </div>
+        </div>
+        
     </>
   )
 }

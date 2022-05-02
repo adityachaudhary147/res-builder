@@ -14,6 +14,8 @@ import { fonts } from "../../redux/reducers/customization/fontReducer";
 import { HeadAlign } from "../../redux/reducers/customization/HeadAlignReducer";
 import { ThemeState } from "../../redux/reducers/customization/ThemeReducer";
 // import MyDocument from './pdfFormation';
+
+import "./theme2view.css";
 interface PreviewProps {
   message: string;
 }
@@ -35,11 +37,11 @@ const Theme2View: React.FC<PreviewProps> = ({ message }: PreviewProps) => {
       <div>
         <div className="preview" >
           <div id='preview'>
-          <div className="header-preview">
-            Theme2
+          <div className="header-preview-t2">
+          
           <div className={`preview-heading-${headAlign.headalign}`}>
-              <div className="full-name">{head.name} </div>
-              <div >{head.statement} </div>
+              <div className="full-name-t2">{head.name}<span className="profession-2"> {head.statement} </span></div>
+              <div > </div>
               {/* <div className={`head-content-${headAlign.contentalign}`}> */}
              <span className="preview-mobile">{head.mobile} </span> <span>|</span>
                <span className="preview-email">{head.email}</span> <span>|</span><span className="preview-website">147chaudhary.me</span>
@@ -48,7 +50,7 @@ const Theme2View: React.FC<PreviewProps> = ({ message }: PreviewProps) => {
           </div>
           <div className="preview-page-content"  style={{fontFamily:font.fontFamily}}>
           
-            <h2 className="title-preview">Education </h2>
+            <h2 className="title-preview-t2">Education </h2>
 
             {education.education &&
               education.education.map((val) => {
@@ -70,7 +72,7 @@ const Theme2View: React.FC<PreviewProps> = ({ message }: PreviewProps) => {
                 );
               })}
 
-            <h2 className="title-preview">Experience </h2>
+            <h2 className="title-preview-t2">Experience </h2>
             {experience.exp &&
               experience.exp.map((val) => {
                 return (
@@ -93,7 +95,7 @@ const Theme2View: React.FC<PreviewProps> = ({ message }: PreviewProps) => {
                 );
               })}
 
-            <h2 className="title-preview">Skills</h2>
+            <h2 className="title-preview-t2">Skills</h2>
             <div className="preview-skill">
             {skills.skills.map((val) => (
               <div >{val}</div>

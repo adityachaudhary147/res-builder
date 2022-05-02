@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateHeader } from "../../redux/actionCreators";
 import { RootState } from "../../redux/reducers";
@@ -12,7 +12,9 @@ import { preProcessFile } from "typescript";
 import { prependListener } from "process";
 import ExpFace from "../Views/ExpFace";
 import SkillFace from "../Views/SkillFace";
+import { postPersonalDetails } from "../../redux/actions/postPersonalDetails";
 interface props{
+  resid:string
   toggleContent:Function
   showEducation:Function
   showExp:Function
@@ -21,6 +23,7 @@ interface props{
 }
 export default function HeaderView(prop:props) {
   const st: HeadState = useSelector((state: RootState) => state.personal);
+  const [st2,setSt2] = useState(st);
   const rootState:RootState=useSelector((state:RootState)=>state);
   const dispatch = useDispatch();
   const initState={save:true,edit:false};
@@ -45,15 +48,22 @@ setEdu_filled(val=>!val);
     console.log(name);
     var value: string | number = e.target.value;
     if (name == "mobile") value = Number(value);
-    dispatch(updateHeader({ [name]: value }));
+    setSt2((val)=>{
+      return {...val,[name]:value}
+    })
   }
   function saveit(){
+    console.log(st2);
+    dispatch(updateHeader(st2));
+    postPersonalDetails(st2,prop.resid)();
     setState({edit:false,save:true});
 
   }
   function editit(){
+    setSt2(st);
     setState({save:false,edit:true});
   }
+ 
   return (
     <>
       <div className="content-personal">
@@ -81,7 +91,7 @@ setEdu_filled(val=>!val);
                 
                 <input 
                   name="name"
-                  value={st.name}
+                  value={st2.name}
                   onChange={(e) => handleonchange(e)}
                 ></input>
               </div>
@@ -89,7 +99,7 @@ setEdu_filled(val=>!val);
               <div className="label"><label>Phone Number</label> </div>
                 <input
                   name="mobile"
-                  value={String(st.mobile)}
+                  value={String(st2.mobile)}
                   onChange={(e) => handleonchange(e)}
                 ></input>
               </div>
@@ -99,7 +109,7 @@ setEdu_filled(val=>!val);
                 <input
                   name="email"
                   type="email"
-                  value={st.email}
+                  value={st2.email}
                   onChange={(e) => handleonchange(e)}
                 ></input>
               </div>
@@ -108,7 +118,7 @@ setEdu_filled(val=>!val);
                 
                 <input
                   name="statement"
-                  value={st.statement}
+                  value={st2.statement}
                   onChange={(e) => handleonchange(e)}
                 ></input>
               </div>
@@ -125,8 +135,8 @@ setEdu_filled(val=>!val);
 {/* <subsection componetn for each to be built ></subsection> */}
 {/* <Subsection rootState={rootState}></Subsection> */}
 
-<EduFace rootState={rootState} education_filled_details={education_filled_details} edu_filled={edu_filled } showEducation={prop.showEducation} />
-<ExpFace exp_filled={exp_filled} rootState={rootState} exp_filled_details={exp_filled_details} showExp={prop.showExp}  />
+<EduFace  resid={prop.resid} rootState={rootState} education_filled_details={education_filled_details} edu_filled={edu_filled } showEducation={prop.showEducation} />
+<ExpFace resid={prop.resid} exp_filled={exp_filled} rootState={rootState} exp_filled_details={exp_filled_details} showExp={prop.showExp}  />
 <SkillFace rootState={rootState} skill_filled_details={skill_filled_details} skill_filled={skill_filled} showSkill={prop.showSkill} />
           </div>
 }

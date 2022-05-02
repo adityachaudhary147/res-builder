@@ -22,10 +22,18 @@ const expReducer = (state: expState=initialState, action: Action):expState => {
                 console.log(action);
 
                 const len=state.exp.length;
-                const added={...action.payload,id:len+1};
+                var present:Boolean=false;
+                state.exp.map((val:exp)=>{ if(val.id==action.payload.id) present=true;});
+                if(present)
+                {
+                    return {...state}
+                }
+                else{
+                const added={...action.payload};
             return {
                exp:[...state.exp,added]
             }
+        }
             case ActionType.REMOVE_DEGREE:
                 return {
                     exp:state.exp.filter(val=>val.id==action.payload?false:true)

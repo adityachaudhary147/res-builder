@@ -6,16 +6,19 @@ import Down_Arrow from "../../assets/down-arrow.png"
 import Up_Arrow from "../../assets/up.png"
 import { useDispatch } from "react-redux";
 import { removeDegree } from "../../redux/actionCreators";
+import { removeEduDegree } from "../../redux/actions/RemoveEduDegree";
 interface Edufaceprops{
     rootState:RootState
     education_filled_details:Function 
     edu_filled:Boolean
     showEducation:Function
+    resid:string
 }
-export default function EduFace({rootState,education_filled_details,edu_filled,showEducation}:Edufaceprops) {
+export default function EduFace({rootState,education_filled_details,edu_filled,showEducation,resid}:Edufaceprops) {
     const dispatch=useDispatch();
     function handleRemove(id:number){
-        dispatch(removeDegree(id));
+      removeEduDegree(String(id),resid)(dispatch);
+        // dispatch(removeDegree(id));
       }
     return (
     <div>

@@ -1,0 +1,36 @@
+.header-preview-9{
+    margin-top: 40px;
+}
+.full-name-9{
+font-size: 28px;
+color: #599f93;
+text-transform: capitalize;
+}
+.duration-9{
+    color:#187663;
+}
+.profession-9{
+    font-size: 20px;
+color: #599f93;
+text-transform: capitalize;
+}
+.headerlist-9{
+    display: flex;
+    justify-content: space-around;
+
+
+}
+.header-preview-9 li{
+    margin-right: 15px;
+}
+.headerlist-box-9{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-preview-9{
+    color: #187663;
+    border-bottom: #187663 solid 4px;
+    padding-bottom: 5px;
+    font-size: 20px;
+}

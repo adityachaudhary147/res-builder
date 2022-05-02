@@ -5,19 +5,25 @@ import Down_Arrow from "../../assets/down-arrow.png";
 import Up_Arrow from "../../assets/up.png";
 import { removeExp } from "../../redux/actionCreators";
 import { useDispatch } from "react-redux";
+import { RemoveExp } from "../../redux/actions/RemoveExp";
 interface Expfaceprops {
   rootState: RootState;
   exp_filled_details: Function;
   exp_filled: Boolean;
   showExp: Function;
+  resid:string;
 }
 export default function ExpFace({
   rootState,
   exp_filled_details,
   exp_filled,
   showExp,
+  resid,
 }: Expfaceprops) {
     const dispatch=useDispatch();
+    function removeExp(id:number){
+      RemoveExp(String(id),resid)(dispatch);
+    }
   return (
     <div>
       {rootState.sections.exp.exp.length == 0 ? (
@@ -51,7 +57,7 @@ export default function ExpFace({
                       {" "}
                       <span
                         className="red-cross"
-                        onClick={() => dispatch(removeExp(val.id as number))}
+                        onClick={() => removeExp(Number(val.id)) }
                       >
                         {" "}
                         ❌

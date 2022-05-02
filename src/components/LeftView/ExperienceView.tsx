@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {  removeExp, updateEdu, updateExp, updateHeader } from '../../redux/actionCreators';
+import { postExpAction } from '../../redux/actions/postExpAction';
 import { RootState } from '../../redux/reducers'
 import { degree } from '../../redux/reducers/educationReducer';
 import { exp, expState } from '../../redux/reducers/expReducer';
 import { HeadState } from '../../redux/reducers/headReducer'
 import FooterView from './FooterView';
 interface props{
-  showHeader:Function
+  showHeader:Function,
+  resid:string
 }
 export default function ExperienceView(props:props) {
   const experience:expState=useSelector((state:RootState)=>state.sections.exp);
@@ -33,8 +35,8 @@ export default function ExperienceView(props:props) {
     })
   }
   function handleSubmit(){
-    
-    dispatch(updateExp(state));
+    // dispatch(updateExp(state));
+    postExpAction(state,props.resid)(dispatch);
     setState(empty);
     props.showHeader();
   }

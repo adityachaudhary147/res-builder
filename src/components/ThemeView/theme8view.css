@@ -1,0 +1,26 @@
+.full-name-8{
+    font-size: 40px;
+    text-transform: capitalize;
+}
+.header-preview-8{
+    background-color: #daae88;
+    color: white;
+    padding: 50px 20px 40px 20px;
+}
+.profession-8{
+    font-size: 20px;
+    margin-left: 20px;
+    color: whitesmoke;
+
+}
+.preview-page-content-8{
+    background-color: #fff8f1;
+    padding: 20px 30px 30px 30px;
+}
+.title-preview-8{
+    background-color: #f3eee8;
+    padding: 4px 1px 3px 1px;
+    text-align: center;
+    color: #6e7870;
+    text-transform: uppercase;
+}

@@ -5,13 +5,17 @@ export interface HeadState {
     name: string,
     mobile: number,
     email: string,
-    statement: string
+    statement: string,
+    profession:string,
+    weburl:string,
 } 
 const initialState:HeadState = {
     email:"bob@gmail.com",
     name:"bobthebuilder",
     mobile:999999999,
-    statement:"bob statement"
+    statement:"bob statement",
+    weburl:"",
+    profession:""
 }
 
 const headReducer = (state: HeadState = initialState, action: Action):HeadState => {

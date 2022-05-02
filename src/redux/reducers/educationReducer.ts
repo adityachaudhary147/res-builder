@@ -21,7 +21,7 @@ const educationReducer = (state: eduState=initialState , action: Action):eduStat
         case ActionType.ADD_DEGREE:
                 console.log(action,state);
                 const len=state.education.length;
-                const added={...action.payload,id:len+1};
+                const added={...action.payload};
             return {
                 education:[...state.education,added]
             }

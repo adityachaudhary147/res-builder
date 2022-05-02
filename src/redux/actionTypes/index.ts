@@ -3,8 +3,8 @@ import { HeadAlign } from "../reducers/customization/HeadAlignReducer";
 import { ThemeState } from "../reducers/customization/ThemeReducer";
 import { degree } from "../reducers/educationReducer";
 import { exp } from "../reducers/expReducer";
+import { HeadState } from "../reducers/headReducer";
 
-// for headers onlyy
 export enum ActionType {
     UPDATE_HEADER='UPDATE_HEADER',
     ADD_DEGREE="ADD_DEGREE",
@@ -17,7 +17,21 @@ export enum ActionType {
     UPDATE_HEAD_ALIGN="UPDATE_HEAD_ALIGN",
     SELECT_THEME="SELECT_THEME",
     UPDATE_SHOW="UPDATE_SHOW",
+    GET_RESUMES="GET_RESUMES",
+    GET_RESUMES_REQUEST="GET_RESUMES_REQUEST",
+    GET_RESUMES_SUCCESS="GET_RESUMES_SUCCESS",
+    GET_RESUMES_FAILURE="GET_RESUMES_FAILURE",
+    
 }
+
+// GET_ALL_THE_RESUME_OF_THE_USER
+
+// GET_THE_RESUME_CLICKED
+
+// GET_EDU_SECTION
+// GET_EXP_SECTION
+// GET_
+
 
 interface  updateObj2{
     [key:string]:string|number,
@@ -26,7 +40,7 @@ interface  updateObj2{
 export type updateObj=updateObj2
 interface updateHeader{
     type:ActionType.UPDATE_HEADER,
-    payload:updateObj2
+    payload:HeadState
 }
 interface actionADDDegree{
     type:ActionType.ADD_DEGREE,
@@ -70,4 +84,17 @@ interface actionUpdateShow{
     type:ActionType.UPDATE_SHOW,
     payload:string
 }
-export type Action = updateHeader | actionADDDegree |actionADDExp | actionADDSkill | actionREMOVESkill |actionRemoveDegree | actionRemoveExp | actionUpdateFont |actionUpdateHeadAlign|actionselectTheme | actionUpdateShow;
+
+interface actionGETResumeRequest{
+    type:ActionType.GET_RESUMES_REQUEST,
+}
+interface actionGETResumeSuccess{
+    type:ActionType.GET_RESUMES_SUCCESS,
+    payload:Array<any>
+}
+interface actionGETResumeError{
+    type:ActionType.GET_RESUMES_FAILURE,
+    payload:string
+}
+export type Action = updateHeader | actionADDDegree |actionADDExp | actionADDSkill | actionREMOVESkill |actionRemoveDegree | actionRemoveExp | actionUpdateFont |actionUpdateHeadAlign|actionselectTheme | actionUpdateShow
+|actionGETResumeRequest| actionGETResumeSuccess | actionGETResumeError;

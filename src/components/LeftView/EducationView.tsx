@@ -2,13 +2,16 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { isReturnStatement } from 'typescript';
 import {  removeDegree, updateEdu, updateExp, updateHeader } from '../../redux/actionCreators';
+import { postEducationAction } from '../../redux/actions/postEducaitonAction';
 import { RootState } from '../../redux/reducers'
 import { degree, eduState } from '../../redux/reducers/educationReducer';
 import { HeadState } from '../../redux/reducers/headReducer'
 import FooterView from './FooterView';
 interface props{
-  showHeader:Function
+  showHeader:Function,
+  resid:string
 }
+
 // form only 
 export default function EducationView(prop:props) {
   const st:eduState=useSelector((state:RootState)=>state.sections.education);
@@ -27,11 +30,11 @@ export default function EducationView(prop:props) {
   }
   function handleSubmit()
   {
-    dispatch(updateEdu(state));
+    // dispatch(updateEdu(state));
+    postEducationAction(state,prop.resid)(dispatch);
     console.log(state);
     setState(empty);
     prop.showHeader();
-
 
 
   }

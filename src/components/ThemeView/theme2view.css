@@ -1,0 +1,22 @@
+
+
+.title-preview-t2{
+    text-align: left;
+    text-transform:uppercase;
+    padding-bottom: 0px;
+    border-bottom: 2px #212020 solid;
+    font-size: 16px;
+}
+.header-preview-t2{
+padding: 50px 40px 40px;
+
+}
+.full-name-t2{
+    font-size: 40px;text-transform: capitalize;
+font-weight: 900;
+}
+.profession-2{
+    font-size: 20px;
+    margin-left: 5px;
+    font-weight: 400;
+}

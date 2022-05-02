@@ -15,10 +15,12 @@ import { RootState } from "../redux/reducers";
 import { showState } from "../redux/reducers/customization/showReducer";
 import { actionUpdateshow } from "../redux/actionCreators";
 interface LeftViewProps {
-  message: string;
+  message: string,
+  resid:string,
 }
+// loaddata structure
 
-export default function LeftView({ message }: LeftViewProps) {
+export default function LeftView({ message ,resid}: LeftViewProps) {
   const [state, setState] = useState([true, false, false, false]);
   const [state2, setState2] = useState([true, false]);
   const [visContent,setVisContent]=useState(false);
@@ -58,7 +60,6 @@ setVisContent(val=>!val);
     // const doc = new jsPDF();
     // doc.text("Hello world!", 10, 10);
     // doc.save("a4.pdf");
-    
     console.log(v,typeof(v));
     html2canvas(v).then((canvas)=>{
     const imgData=canvas.toDataURL('image/png');
@@ -83,9 +84,9 @@ setVisContent(val=>!val);
         <div> 
         <div>
         <div  >
-            <div >{state[0] && <HeaderView toggleContent={toggleADDContent} showEducation={showEducation} showExp={showExp} showSkill={showSkill} showHeader={showHeader}></HeaderView>}</div>
-            <div>{state[1] && <EducationView showHeader={showHeader}></EducationView>}</div>
-            <div>{state[2] && <ExperienceView showHeader={showHeader}></ExperienceView>}</div>
+            <div >{state[0] && <HeaderView  resid={resid} toggleContent={toggleADDContent} showEducation={showEducation} showExp={showExp} showSkill={showSkill} showHeader={showHeader}></HeaderView>}</div>
+            <div>{state[1] && <EducationView resid={resid} showHeader={showHeader}></EducationView>}</div>
+            <div>{state[2] && <ExperienceView  resid={resid} showHeader={showHeader}></ExperienceView>}</div>
             <div>{state[3] && <SkillsView showHeader={showHeader}></SkillsView>}</div>
           </div>
         </div> 
