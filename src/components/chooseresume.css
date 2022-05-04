@@ -6,13 +6,51 @@
 
 .resumeName{
 
-    font-size: large;
-    padding: 20px;
-    width: 40%;
-    background-color: grey;
-    color:black
+   display: flex;
+    margin-top: 20px;
+    align-items: center;justify-content:space-around;
+font-size: 30px;
+font-weight: 900;
+    border-radius: 30px;
+    box-shadow: rgb(0 0 0 / 5%) 2px 1px 7px;
+    background-color: white;
+    padding-left: 35px;
+    padding-top: 25px;
+    padding-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.resumeName:hover{
+    opacity: 0.6;
 }
 .resumeName-link{
 text-decoration: none;
+color: black;
+}
+.logout-btn{
+     color :white;
+     background-color: black;
+     padding-left:20px;
+     padding-right: 20px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     border-radius: 10px;
+     border:none;
+     font-weight: 900;
+}
+.choose-resume-title{
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.delte-btn-choose-resume{
+    width: 32px;
+}
 
+.createNew-options{
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }

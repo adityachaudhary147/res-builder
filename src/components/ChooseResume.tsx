@@ -12,78 +12,123 @@ import { asyncThinkActionPostResume } from '../redux/actions/postResumeName';
 import { Link } from 'react-router-dom';
 import BuildNPreview from '../BuildNPreview';
 import { postDeleteResume } from '../redux/actions/postDeleteResume';
+import DelteIcon from '../assets/delete.png';
+import { createNewFromCurrent } from '../redux/actions/UseCurrentResumeToCreateNew';
 
 export default function ChooseResume() {
 
-const dispatch=useDispatch();
-    // action for getting all the resumes 
-    // function getallResume (){ 
-    //     asyncThinkAction()(dispatch);
-    // }
+  const dispatch = useDispatch();
+  // action for getting all the resumes 
+  // function getallResume (){ 
+  //     asyncThinkAction()(dispatch);
+  // }
 
-    const [name,setName]=useState("");
-    const resumelist:resumeState=useSelector((state:RootState)=>state.resumelist);
-    const auth=useSelector((state:RootState)=>state.auth);
-    console.log( auth);
-    useEffect(()=>{
-        // actionforFetchingResumes();
-        asyncThinkAction()(dispatch);
-       
-    },[]);
-    function handleAddResume(e:React.FormEvent<HTMLFormElement>){
-      // e.preventDefault();
-      console.log(name);
-      
-      const res=asyncThinkActionPostResume(name)();
-      console.log(res);
-      setName('');
-      
-      // action add resname to this specific user with name were
+  const [name, setName] = useState("");
 
-    }
-    function updateHello(e:React.ChangeEvent<HTMLInputElement>){
-      setName(e.target.value);
-    }
-    console.log(resumelist);
+  const [copyState,setCopyState]=useState({name:'',resid:''});
+  const resumelist: resumeState = useSelector((state: RootState) => state.resumelist);
+  const auth = useSelector((state: RootState) => state.auth);
+  console.log(auth);
+  useEffect(() => {
+    // actionforFetchingResumes();
+    asyncThinkAction()(dispatch);
+
+  }, []);
+  function handleAddResume(e: React.FormEvent<HTMLFormElement>) {
+    // e.preventDefault();
+    console.log(name);
+
+    const res = asyncThinkActionPostResume(name)();
+    console.log(res);
+    setName('');
+
+    // action add resname to this specific user with name were
+
+
+  }
+  function createnewcopiedresume(e: React.FormEvent<HTMLFormElement>){
+    e.preventDefault();
+    console.log(copyState);
+    const res=createNewFromCurrent(copyState)(dispatch);
+
+    setCopyState({name:'',resid:''});
+    return;
+    
+  }
+  function updateHello(e: React.ChangeEvent<HTMLInputElement>) {
+    setName(e.target.value);
+  }
+  console.log(resumelist);
 
   return (
     <div>
-        <div>
-          <div className='choose-head'>
-            <div>
-          {auth.auth.isLoggedIn && <h1>{`Welcome ${auth.auth.user.Username}`}</h1>}
-          { !auth.auth.isLoggedIn && <Navigate to='/'></Navigate>}
+      <div>
+        <div className='choose-head'>
+          <div>
+            {auth.auth.isLoggedIn && <h1>{`Welcome ${auth.auth.user.Username}`},</h1>}
+            {!auth.auth.isLoggedIn && <Navigate to='/'></Navigate>}
           </div>
           <div>
-          <button onClick={()=>logout()(dispatch)}> Logout </button>
+            <button  className='logout-btn' onClick={() => logout()(dispatch)}> Logout </button>
           </div>
-          </div>
-          {resumelist.error!=null ? <div> <span>"There is an error Please try Again "</span><button onClick={()=>logout()(dispatch)}> Try Again </button></div>:
-         <div>
-        <h1> Choose your Resume you previously worked on </h1>
-         {resumelist.isloading && "Loading"} 
-         { resumelist.data && resumelist.data.length==0 && "You dont have any resume create one and start "} 
-         
-         {resumelist.data && resumelist.data.map(val=>{ return<h1 className='resumeName' ><Link className='resumeName-link' to='/resume' state={{ from: val.Id }}>{val.Name} </Link><button onClick={()=>postDeleteResume(val.Id)(dispatch)}>Delete</button></h1>;})}
+        </div>
+        {resumelist.error != null ? <div> <span>"There is an error Please try Again "</span><button onClick={() => logout()(dispatch)}> Try Again </button></div> :
+          <div>
+            <h1 className='choose-resume-title'> Choose your Resume ⚡️</h1>
+            <h4 className='choose-resume-title'> Your  resume – 100% free, forever, all features, unlimited downloads, yes really.</h4>
+            {resumelist.isloading && "Loading"}
+            {resumelist.data && resumelist.data.length == 0 && "You dont have any resume create one and start "}
 
+            {resumelist.data && resumelist.data.map(val => { return <div className='resumeName' ><div><Link className='resumeName-link' to='/resume' state={{ from: val.Id }}>{val.Name} </Link></div><div><img className='delte-btn-choose-resume' onClick={()=> postDeleteResume(val.Id)(dispatch)} src={DelteIcon}></img></div></div>; })}
 
-         <h1>Create New Resume</h1> 
-         <div>
+            <div className='createNew-options'>
 
-         <form onSubmit={(e)=>handleAddResume(e)}>
-           <div>
-           <label> Enter your resume name </label>
-           <input name="resumename" type="text" value={name} onChange={(e)=>updateHello(e)} /> 
-           </div>
-           <button>Create New Resume</button>
+            <h1>Create New Resume</h1>
+            <div>
 
-           <h1>Copy content from above resume to build another version of the resume </h1>
+              <form onSubmit={(e) => handleAddResume(e)}>
+                <div>
+                  <label> Enter your resume name </label>
+                  <input name="resumename" type="text" value={name} onChange={(e) => updateHello(e)} />
+                </div>
+                <button>Create New Resume</button>
 
-           
-         </form>
-         </div>
+              
+
+              </form>
+
+              <form onSubmit={createnewcopiedresume}>
+
+             
+              <h1>Copy content from above resume to build another version of the resume </h1>
+
+              <div>
+
+                <label> Enter the Name of the Resume </label>
+
+              <input name='resname' type='text' value={copyState.name} onChange={(e)=>{ setCopyState((val)=>{return {...val,name:e.target.value}})}} />
+              </div>
+              <div>
+
+              
+              <select name="resumess"  value={copyState.resid} id="selectResume" onChange={(e)=>{ setCopyState((val)=>{return {...val,resid:e.target.value}})}}>
+                <option value="select" >Select</option>
+              {resumelist.data && resumelist.data.map(val => { return <option value={val.Id} >{val.Name} {val.Id}</option> })}
+              </select>
+              </div>
+              
+              <div>
+              <button >Create a Copy  </button>
+
+              </div>
+
+             
+
+              </form>
+            </div>
+            </div>
           </div>}
-         </div>
+      </div>
 
 
 

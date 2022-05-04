@@ -138,3 +138,8 @@ export function actiongetResumeFailure(errMessege:string){
         payload:errMessege
     }
 }
+export function actionaddCurrentResumeName(name:string){
+    return {
+        type:ActionType.ADD_RESUME_NAME,payload:name
+    }
+}

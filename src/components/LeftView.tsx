@@ -24,7 +24,7 @@ export default function LeftView({ message ,resid}: LeftViewProps) {
   const [state, setState] = useState([true, false, false, false]);
   const [state2, setState2] = useState([true, false]);
   const [visContent,setVisContent]=useState(false);
-  
+  const resName:string=useSelector((state:RootState)=>state.resName.name);
   const show:showState=useSelector((state:RootState)=>state.customize.show);
   const [display,setDisplay]=useState(show.selected);
   const dispatch=useDispatch();
@@ -77,7 +77,7 @@ setVisContent(val=>!val);
       <div className="left">
 
         <div className="head-left"> 
-        <div className="resume-title" ><span>Resume</span> <span><img  className="edit-res-icon" src={Edit}></img></span></div>
+        <div className="resume-title" ><span>{resName}</span> <span><img  className="edit-res-icon" src={Edit}></img></span></div>
         <div  ><button className="download-btn" onClick={printit}>Download</button></div>
         </div>
         {display=='content' &&

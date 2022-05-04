@@ -11,6 +11,7 @@ import Message from './auth/message';
 import headReducer from './headReducer';
 import skillsReducer from './skillsReducer';
 import resumeReducer from './resumeReducer';
+import resumeNameReducer from './resumeNameReducer';
 const sections=combineReducers({exp:expReducer,skill:skillsReducer,education:educationReducer});
 const customize=combineReducers({fontFamily:fontReducer,headAlign:HeadAlignReducer,theme:ThemeReducer,show:ShowReducer});
 const authReducer=combineReducers({auth:Auth,Message:Message});
@@ -19,7 +20,8 @@ sections:sections,
 personal:headReducer,
 customize:customize,
 auth:authReducer,
-resumelist:resumeReducer
+resumelist:resumeReducer,
+resName:resumeNameReducer
 });
 
 

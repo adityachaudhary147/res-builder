@@ -24,6 +24,7 @@ export enum ActionType {
     MAKE_EXP_EMPTY="MAKE_EXP_EMPTY",
     MAKE_EDU_EMPTY='MAKE_EDU_EMPTY',
     MAKE_SKILLS_EMPTY='MAKE_SKILLS_EMPTY',
+    ADD_RESUME_NAME='ADD_RESUME_NAME',
     
 }
 
@@ -34,6 +35,9 @@ export enum ActionType {
 // GET_EDU_SECTION
 // GET_EXP_SECTION
 // GET_
+interface addResumeName{
+    type:ActionType.ADD_RESUME_NAME,payload:string;
+}
 interface actionmakeempty{
     type:ActionType.MAKE_EDU_EMPTY|ActionType.MAKE_SKILLS_EMPTY|ActionType.MAKE_EXP_EMPTY
 }
@@ -102,4 +106,4 @@ interface actionGETResumeError{
     payload:string
 }
 export type Action = updateHeader | actionADDDegree |actionADDExp | actionADDSkill | actionREMOVESkill |actionRemoveDegree | actionRemoveExp | actionUpdateFont |actionUpdateHeadAlign|actionselectTheme | actionUpdateShow
-|actionGETResumeRequest| actionGETResumeSuccess | actionGETResumeError | actionmakeempty;
+|actionGETResumeRequest| actionGETResumeSuccess | actionGETResumeError | actionmakeempty | addResumeName;
