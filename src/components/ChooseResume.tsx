@@ -47,7 +47,7 @@ export default function ChooseResume() {
 
   }
   function createnewcopiedresume(e: React.FormEvent<HTMLFormElement>){
-    e.preventDefault();
+    // e.preventDefault();
     console.log(copyState);
     const res=createNewFromCurrent(copyState)(dispatch);
 
@@ -100,7 +100,7 @@ export default function ChooseResume() {
               <form onSubmit={createnewcopiedresume}>
 
              
-              <h1>Copy content from above resume to build another version of the resume </h1>
+              <h1>Copy content from 1 resume to build another version of the resume </h1>
 
               <div>
 
@@ -110,7 +110,7 @@ export default function ChooseResume() {
               </div>
               <div>
 
-              
+              <label>Select a Resume whose copy you want</label>
               <select name="resumess"  value={copyState.resid} id="selectResume" onChange={(e)=>{ setCopyState((val)=>{return {...val,resid:e.target.value}})}}>
                 <option value="select" >Select</option>
               {resumelist.data && resumelist.data.map(val => { return <option value={val.Id} >{val.Name} {val.Id}</option> })}

@@ -26,17 +26,10 @@ try{
         }
         else if (text.status == 401) {
             console.log(text.data);
-            logout()(dispatch);
-
-        
+            logout()(dispatch);        
         }
         const data=text.data;
         console.log(data);
-
-
-
-
-
 
 
         // create new with the name provided
@@ -47,7 +40,7 @@ try{
         const text2 = await axios.post("http://localhost:3004/api/addresume", body2, config);
   
   
-        console.log(text, "heer is th etext ");
+        console.log(text2, "heer is th etext ");
         const data2 = text2.data;
         console.log(data2);
 
@@ -55,8 +48,29 @@ try{
 
         console.log( "call the create ewusme and retrun id for the resume created ")
         console.log(name);
+        console.log(data,data2);
+        const body3 = new URLSearchParams({ Resid:data2,data:JSON.stringify(data)});
+  
+        const text3 = await axios.post("http://localhost:3004/api/createNewEntries", body3, config);
 
-        
+        console.log(text3);
+  
+
+
+        // using the resume return id i have to create new apis for education skills and others section
+    //     data.edu.map(val=>{
+    //         const body = new URLSearchParams({ UniName: val.schoolname, Course: state.course, StartYear: state.start_year, EndYear: state.end_year, Location: state.location, Resid: resid });
+
+            
+    //     })
+
+    //   const text = await axios.post("http://localhost:3004/api/addeducationd", body, config);
+
+
+
+
+
+
 
 
         console.log( "push the personal table , edu tbale , exp etable , skill tbale with the data from load resume using new id of the crated resume ");
